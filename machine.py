@@ -1,8 +1,6 @@
 # machine.py
 
-"""
-Base class for different types of machines, handling money operations.
-"""
+"""Base class for different types of machines, handling money operations."""
 
 class Machine:
 
