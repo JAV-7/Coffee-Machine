@@ -19,6 +19,8 @@ MENU = {
 }
 
 
+
+
 def create_coffee_machine() -> dict:
     """
     Returns: dict: A new coffee machine initialized with maximum resources and zero money.
