@@ -56,7 +56,7 @@ python test_random_coffee_machine.py
 
 ### 6 Casos de Uso Ejecutados:
 
-**Caso 1: Rellenar M�quina**
+**Caso 1: Rellenar MAquina**
 - Estado inicial: 87g beans, 2 cups, 856ml water, 332ml milk
 - Inputs aleatorios: +24g beans, +636ml water, +407ml milk, +8 cups
 - Resultado: 111g beans, 10 cups, 1492ml water, 739ml milk
@@ -86,15 +86,15 @@ python test_random_coffee_machine.py
 - GeneraciOn aleatoria: 124g beans, 2 cups, 1203ml water, 777ml milk, $74
 - Muestra variabilidad en condiciones iniciales
 
-## Caracter�sticas T�cnicas
+## CaracterIsticas TEcnicas
 
-- **Validaci�n robusta** de entradas numEricas
-- **Gesti�n de estados** consistente
-- **L�mites m�ximos** respetados automAticamente
+- **ValidaciOn robusta** de entradas numEricas
+- **GestiOn de estados** consistente
+- **LImites mAximos** respetados automAticamente
 - **Manejo de errores** sin crashes
 - **Tests exhaustivos** con casos edge
 - **Aleatoriedad real** usando timestamps
 
-## Contrase�a Administrativa
+## ContraseNa Administrativa
 
 Password por defecto: `1234`
