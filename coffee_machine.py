@@ -164,5 +164,5 @@ def make_coffee(machine: dict) -> None:
         machine['cups'] -= 1
         machine['money'] += coffee_recipe['price']
         
-        print(f"Here is your {choice}! ☕ Enjoy!")
+        print(f"Here is your {choice}! Enjoy!")
         return
