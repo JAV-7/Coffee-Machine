@@ -102,8 +102,67 @@ def fill_the_machine(machine: dict) -> None:
 
 # Display menu options
 def show_menu() -> None:
-    pass
+    """
+    Displays the coffee menu with prices and ingredients.
+    """
+    print("\n--- Coffee Menu ---")
+    for coffee, details in MENU.items():
+        print(f"{coffee.capitalize()}: ${details['price']} - Water: {details['water']}ml, "
+              f"Milk: {details['milk']}ml, Beans: {details['beans']}g")
 
 # Make coffee based on user choice
 def make_coffee(machine: dict) -> None:
-    pass
+    """
+    Makes coffee based on user selection and processes payment.
+    Args: machine (dict): The current state of the machine.
+    Returns: None
+    """
+    if is_empty(machine):
+        return
+    
+    show_menu()
+    
+    while True:
+        choice = input("\nSelect your coffee (espresso/latte/cappuccino) or 'back' to return: ").strip().lower()
+        
+        if choice == 'back':
+            return
+        
+        if choice not in MENU:
+            print("Invalid choice. Please select from the menu.")
+            continue
+            
+        coffee_recipe = MENU[choice]
+        
+        # Check if machine has enough resources
+        if (machine['water'] < coffee_recipe['water'] or
+            machine['milk'] < coffee_recipe['milk'] or
+            machine['beans'] < coffee_recipe['beans'] or
+            machine['cups'] < 1):
+            print(f"Sorry, not enough resources to make {choice}.")
+            return
+        
+        print(f"\n{choice.capitalize()} costs ${coffee_recipe['price']}")
+        print(f"Available money in machine: ${machine['money']}")
+        
+        # Ask for payment
+        payment = set_amount("Insert money: $")
+        
+        if payment < coffee_recipe['price']:
+            print(f"Insufficient payment. {choice.capitalize()} costs ${coffee_recipe['price']}. Money returned.")
+            return
+        
+        # Calculate change
+        change = payment - coffee_recipe['price']
+        if change > 0:
+            print(f"Here is your change: ${change}")
+        
+        # Deduct resources and add money
+        machine['water'] -= coffee_recipe['water']
+        machine['milk'] -= coffee_recipe['milk']
+        machine['beans'] -= coffee_recipe['beans']
+        machine['cups'] -= 1
+        machine['money'] += coffee_recipe['price']
+        
+        print(f"Here is your {choice}! ☕ Enjoy!")
+        return

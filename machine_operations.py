@@ -53,6 +53,16 @@ def withdraw_money(password: str, machine_state: dict) -> None:
         else:
             print("Invalid input. Please enter 'yes' or 'no'.")
 
+def deposit_money(machine_state: dict) -> None:
+    """
+    Args: machine_state (dict): The current state of the machine, including money.
+    Returns: None
+    Description: Allows users to deposit money into the machine.
+    """
+    amount = set_amount("Insert amount of money to deposit: $")
+    machine_state["money"] += amount
+    print(f"Deposited ${amount}. Total money in machine: ${machine_state['money']}")
+
 def exit_program() -> None:
     print("Exiting the program. Goodbye!")
     exit()
